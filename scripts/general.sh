@@ -1460,14 +1460,14 @@ prepare_host()
 	#
 	# NO_HOST_RELEASE_CHECK overrides the check for a supported host system
 	# Disable host OS check at your own risk. Any issues reported with unsupported releases will be closed without discussion
-	if [[ -z $HOSTRELEASE || "focal jammy noble" != *"$HOSTRELEASE"* ]]; then
-		if [[ $NO_HOST_RELEASE_CHECK == yes ]]; then
-			display_alert "You are running on an unsupported system" "${HOSTRELEASE:-(unknown)}" "wrn"
-			display_alert "Do not report any errors, warnings or other issues encountered beyond this point" "" "wrn"
-		else
-			exit_with_error "It seems you ignore documentation and run an unsupported build system: ${HOSTRELEASE:-(unknown)}"
-		fi
-	fi
+	# if [[ -z $HOSTRELEASE || "focal jammy noble" != *"$HOSTRELEASE"* ]]; then
+	# 	if [[ $NO_HOST_RELEASE_CHECK == yes ]]; then
+	# 		display_alert "You are running on an unsupported system" "${HOSTRELEASE:-(unknown)}" "wrn"
+	# 		display_alert "Do not report any errors, warnings or other issues encountered beyond this point" "" "wrn"
+	# 	else
+	# 		exit_with_error "It seems you ignore documentation and run an unsupported build system: ${HOSTRELEASE:-(unknown)}"
+	# 	fi
+	# fi
 
 	if grep -qE "(Microsoft|WSL)" /proc/version; then
 		if [ -f /.dockerenv ]; then
